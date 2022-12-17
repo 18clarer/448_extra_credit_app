@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <style>
+      /* Add some styling to make the page look nice */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      h2 {
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      li img {
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+      }
+      .add-account-link {
+        display: block;
+        margin-top: 40px;
+        text-align: center;
+      }
+      .search-form {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+      }
+      .search-input {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        padding: 10px;
+        width: 300px;
+      }
+      .search-button {
+        background-color: #4caf50;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 10px;
+      }
+      .search-button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome, {{ user.username }}!</h1>
+      <h2>Your Accounts:</h2>
+      <ul>
+        {% if accounts.instagram %}
+        <li>
+          Instagram:&nbsp;
+          {{ accounts.instagram }}
+        </li>
+        {% else %}
+        <li>
+          Instagram:&nbsp;
+          Not added
+        </li>
+        {% endif %} {% if accounts.twitter %}
+        <li>
+          Twitter:&nbsp;
+          {{ accounts.twitter }}
+        </li>
+        {% else %}
+        <li>
+          Twitter:&nbsp;
+          Not added
+        </li>
+        {% endif %} {% if accounts.facebook %}
+        <li>
+          Facebook:&nbsp;
+          {{ accounts.facebook }}
+        </li>
+        {% else %}
+        <li>
+          Facebook:&nbsp;
+          Not added
+        </li>
+        {% endif %} {% if accounts.snapchat %}
+        <li>
+          Snapchat:&nbsp;
+          {{ accounts.snapchat }}
+        </li>
+        {% else %}
+        <li>
+          Snapchat:&nbsp;
+          Not added
+        </li>
+        {% endif %} {% if accounts.linkedin %}
+        <li>
+          LinkedIn:&nbsp;
+          {{ accounts.linkedin }}
+        </li>
+        {% else %}
+        <li>
+          LinkedIn:&nbsp;
+          Not added
+        </li>
+        {% endif %} {% if accounts.tiktok %}
+        <li>
+          TikTok:&nbsp;
+          {{ accounts.tiktok }}
+        </li>
+        {% else %}
+        <li>
+          TikTok:&nbsp; 
+          Not added
+        </li>
+        {% endif %}
+      </ul>
+      <a href="{{ url_for('add_account', username = user.username) }}" class="add-account-link"
+        >Add an account</a
+      >
+      <h2>Search for other users:</h2>
+      <form action="{{ url_for('search', username=user.username) }}" method="POST" class="search-form">
+        <input
+          type="text"
+          name="search"
+          class="search-input"
+          placeholder="Search for a user"
+        />
+        <button type="submit" class="search-button">Search</button>
+      </form>
+    </div>
+  </body>
+</html>

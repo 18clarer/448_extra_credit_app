@@ -1,0 +1,52 @@
+
+
+<!-- Header section -->
+<h1>{{ user.username }}</h1>
+
+<!-- Back button -->
+<a href="{{ url_for('home', username = username ) }}">Back to Home</a>
+
+<!-- Social media account section -->
+<h2>Social Media Accounts</h2>
+
+<!-- Instagram -->
+{% if user.instagram %}
+  <p>Instagram: {{ user.instagram }}</p>
+{% else %}
+  <p>Instagram: (not added)</p>
+{% endif %}
+
+<!-- Twitter -->
+{% if user.twitter %}
+  <p>Twitter: {{ user.twitter }}</p>
+{% else %}
+  <p>Twitter: (not added)</p>
+{% endif %}
+
+<!-- Facebook -->
+{% if user.facebook %}
+  <p>Facebook: {{ user.facebook }}</p>
+{% else %}
+  <p>Facebook: (not added)</p>
+{% endif %}
+
+<!-- Snapchat -->
+{% if user.snapchat %}
+  <p>Snapchat: {{ user.snapchat }}</p>
+{% else %}
+  <p>Snapchat: (not added)</p>
+{% endif %}
+
+<!-- LinkedIn -->
+{% if user.linkedin %}
+  <p>LinkedIn: {{ user.linkedin }}</p>
+{% else %}
+  <p>LinkedIn: (not added)</p>
+{% endif %}
+
+<!-- TikTok -->
+{% if user.tiktok %}
+  <p>TikTok: {{ user.tiktok }}</p>
+{% else %}
+  <p>TikTok: (not added)</p>
+{% endif %}
